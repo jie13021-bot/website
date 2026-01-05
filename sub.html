@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서브페이지</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="script/script.js"></script>
+    </head>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ibm Plex Sans';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#wrap {
+    width: 1920px;
+    height: 3435px;
+
+}
+.header {
+    height: 128px;
+    background-image: url(../정지이_website/images/header.jpg);
+    position: relative;
+}
+
+.header .nuri {
+    font-size: 12px;
+    position: absolute;
+    top: 7px;
+    left: 60px;
+    background-color: #e9f7f4;
+}
+
+.header .nuri:hover {
+    text-decoration: underline;
+}
+
+.header .logo {
+    float: left;
+    width: 275px;
+    height: 49px;
+    margin-top: 53px;
+    margin-left: 70px;
+}
+
+
+
+.header .login {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 58px;
+    position: absolute;
+    top: 65px;
+    right: 145px;
+}
+
+.header .login li {
+    position: static;
+    margin: 0;
+}
+
+.header .login li a:hover {
+    text-decoration: underline;
+}
+.header .search-box {
+    position: relative;
+    top: 77px;
+    left: 910px;
+    transform: translate(-50%, -50%);
+    border: 2px solid #02bf7e;
+    border-radius: 30px;
+    width: 500px;
+    height: 61px;
+}
+
+.search-txt {
+    float: left;
+    padding: 0;
+    background: none;
+    border: none;
+    outline: none;
+    color: black;
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 14px;
+    left: 165px;
+    position: absolute;
+}
+
+.header .search-box a {
+    color: white;
+    background-color: #02bf7e;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    margin-left: 473px;
+    margin-top: 2px;
+    position: absolute;
+}
+
+.header .search-box a i {
+    position: absolute;
+    color: #fff;
+    font-size: 20px;
+}
+
+.header .search-box a:hover {
+    background-color: #009360;
+}
+.all-search {
+    position: absolute;
+    left: 650px;
+    top: 50px;
+    z-index: 2000;
+}
+
+.all-search>ul {
+    position: relative;
+}
+
+.all-search .depth1>a {
+    padding: 15px 45px;
+    display: block;
+}
+
+.all-search .lnb {
+    position: absolute;
+    top: 50px;
+    left: 25px;
+    background: #fff;
+    width: 110px;
+    display: none;
+    z-index: 3000;
+    border: 2px solid #02bf7e;
+}
+
+.all-search .lnb li a {
+    padding: 10px 20px;
+    display: block;
+}
+
+.all-search .lnb li a:hover {
+    background-color: #02bf7e;
+    color: #fff;
+}
+
+.all-search .depth1:hover .lnb {
+    display: block;
+}
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 500; 
+  background:#fff;
+}
+.nav .gnb{
+  position: relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap: 182px;      
+  height: 98px;    
+}
+.nav .has-mega .mega{
+  position: absolute;
+  top: 98px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  background: #fff;
+  border-top: 1px solid #e7e7e7;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .18s ease, visibility .18s ease;
+}
+
+.nav .has-mega:hover .mega,
+.nav .has-mega:focus-within .mega{
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+.nav .mega-inner{
+  width: 1400px;             
+  margin-left: 35px;   
+  margin-right: auto;
+  padding: 22px 0 26px;
+  display: flex;
+  gap: 24px;
+}
+
+
+.nav .mega-left{
+  width: 400px;
+  border-radius: 18px;
+  padding: 26px 22px;
+  color: #fff;
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.18), rgba(255,255,255,0) 40%),
+    linear-gradient(135deg, #026d47, #02bf7e);
+  min-height: 210px;
+}
+.nav .mega-title{
+  font-size: 24px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+.nav .mega-desc{
+  font-size: 14px;
+  opacity: .9;
+}
+
+
+.nav .mega .mega-right{
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  row-gap: 23px;
+  column-gap: 50px;
+  align-content: start;
+}
+.nav .mega-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  background: #fff;
+  color: #111;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background .15s ease, border-color .15s ease;
+  width: 110%;
+}
+
+.nav .mega-item:hover{
+  background: #f6faf9;
+  border-color: #02bf7e;
+}
+
+
+.nav .mega-item.plus::after{
+  content:"+";
+  font-weight: 900;
+  color:#111;
+}
+
+.nav .mega-item.ext::after{
+  content:"↗";
+  font-weight: 900;
+  color:#111;
+}
+.nav .gnb{
+  display: flex;
+  font-size: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 182px;
+  position: relative;   /* absolute 금지 */
+  height: 98px;
+  margin: 0;            /* 기본 ul 여백 제거 */
+  padding: 0;
+}
+
+.nav .gnb > li{
+  font-weight: 500;
+}
+
+.nav .gnb > li > a:hover{
+  border-bottom: 3px solid #02bf7e;
+}
+
+.footer {
+    background-image: url(../정지이_website/images/footer.jpg );
+    height: 306px;
+    position: relative;
+}
+
+.buseo>ul {
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    left: 375px;
+    bottom: 237px;
+    gap: 110px;
+}
+
+.buseo li {
+    width: 200px;
+    font-weight: 500;
+    position: static;
+}
+
+.buseo>ul>li {
+    position: relative;
+}
+
+.buseo>ul>li>a {
+    display: block;
+    width: 290px;
+    color: #fff;
+}
+
+.buseo>ul>li>a:hover {
+    color: #06a8c1;
+}
+
+.buseo>ul>li>ul {
+    position: absolute;
+    background-color: rgba(47, 64, 78, 0.9);
+    width: 290px;
+    bottom: 100%;
+    margin-bottom: 10px;
+    transform: translateX(-30%);
+    left: 62px;
+}
+
+/* 자바스크립트css */
+.buseo>ul>li>ul {
+    display: block;
+    height: 0px;
+    /* height: 132px; */
+    overflow: hidden;
+    transition: all 500ms;
+    overflow: auto;
+}
+
+.buseo>ul>li>ul>li>a {
+    display: block;
+    padding: 5px;
+    color: #fff;
+}
+
+.buseo>ul>li>ul>li>a:hover {
+    color: #06a8c1;
+}
+
+.top-btn{
+  position: fixed;
+  right: 130px;
+  bottom: 450px;
+  z-index: 9999;
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 50%;
+  background: #02bf7e;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .2s, transform .2s;
+}
+.top-btn::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:18px;
+  width:0;
+  height:0;
+  border-left:8px solid transparent;
+  border-right:8px solid transparent;
+  border-bottom:10px solid #fff; 
+  transform:translateX(-50%);
+}
+.top-btn::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:28px;
+  width:0;
+  height:0;
+  border-left:3px solid ;
+  border-right:3px solid ;
+  border-bottom:10px solid #fff;
+  transform:translateX(-50%);
+}
+.top-btn.show{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.top-btn:hover{
+  filter: brightness(0.95);
+}
+.footer .geain {
+    position: absolute;
+    font-weight: 500;
+    align-items: center;
+    display: flex;
+    gap: 15px;
+    margin-left: 349px;
+    margin-top: 107px;
+}
+
+.footer .geain li span {
+    color: #abadaf;
+    margin-left: 10px;
+}
+
+.footer .geain li a {
+    color: #abadaf;
+}
+
+.footer .geain li a:hover {
+    color: #06a8c1;
+}
+
+.footer .address {
+    display: flex;
+    font-style: normal;
+}
+
+.footer .address ul {
+    color: #8d9399;
+    top: 188px;
+    left: 349px;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 21px;
+}
+        @font-face {
+    font-family: 'IbmPlexSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IbmPlexSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Light.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IbmPlexSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IbmPlexSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Text.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IbmPlexSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Medium.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IbmPlexSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-display: swap;
+}
+    </style>
+
+<body>
+        <div id="wrap">
+        <header class="header">
+            <a href="index.html" class="logo"><img src="images/logo.jpg" alt="대구교육청"></a>
+            <a href="https://www.mois.go.kr/frt/sub/popup/p_taegugki_banner/screen.do" target="_blank" class="nuri">이 누리집은 대한민국 공식 전자정부 누리집입니다.</a>
+            <div class="all-search">
+                <ul>
+                    <li class="depth1">
+                        <a href="#">통합검색</a>
+                        <ul class="lnb">
+                            <li><a href="#">통합검색</a></li>
+                            <li><a href="#">직원/업무</a></li>
+                            <li><a href="#">홈페이지</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="search-box">
+                <form action="." method="post">
+                    <input class="search-txt" type="text" placeholder="검색어를 입력해 주세요">
+                </form>
+                <a href="#">
+                    <i class="bi bi-search"></i>
+                </a>
+            </div>
+
+            <ul class="login">
+                <li><a href="https://www.mois.go.kr/frt/sub/a06/b08/nationalIcon/screen.do" target="_blank">국가상징</a></li>
+                <li><a href="https://www.edunavi.kr/portal/lo/login/loginPage.do?retUrl=https%3A%2F%2Fwww.dge.go.kr%2Fmain%2Fmain.do&retSysId=main&retInsttTy=dgedu">로그인</a></li>
+                <li><a href="#">언어설정</a></li>
+                <li><a href="#">화면크기</a></li>
+            </ul>
+        </header>
+        <section class="nav">
+<ul class="gnb">
+    <li class="has-mega"><a href="sub.html">참여마당</a>
+        <div class="mega">
+        <div class="mega-inner">
+        <div class="mega-left">
+            <strong class="mega-title">참여마당</strong>
+            <p class="mega-desc">미래를 배우다 함께 성장한다</p>
+        </div>
+
+        <div class="mega-right">
+            <a class="mega-item" href="#">함께하는 대구 교육문화</a>
+            <a class="mega-item" href="#">인사 핫라인</a>
+            <a class="mega-item" href="#">자유게시판</a>
+            <a class="mega-item plus" href="#">대구교육 정책공모</a>
+
+            <a class="mega-item" href="#">대구교육청SNS</a>
+            <a class="mega-item plus" href="#">신고센터</a>
+            <a class="mega-item" href="#">국민제안</a>
+            <a class="mega-item" href="#">공무원 제안</a>
+
+            <a class="mega-item ext" href="#">열린감사</a>
+            <a class="mega-item ext" href="#">정책참여</a>
+            <a class="mega-item ext" href="#">적극행정</a>
+            <a class="mega-item" href="#">주민참여예산방</a>
+
+            <a class="mega-item plus" href="#">교원업무경감</a>
+            <a class="mega-item" href="#">설문 및 투표</a>
+            <a class="mega-item" href="#">국민생각함</a>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="has-mega">
+      <a href="#">알림마당</a>
+
+      <div class="mega">
+        <div class="mega-inner">
+          <div class="mega-left">
+            <strong class="mega-title">알림마당</strong>
+            <p class="mega-desc">미래를 배우다 함께 성장한다</p>
+          </div>
+
+
+          <div class="mega-right">
+            <a class="mega-item" href="#">공지사항</a>
+            <a class="mega-item" href="#">통합예약시스템</a>
+            <a class="mega-item" href="#">기관별 행사안내</a>
+            <a class="mega-item plus" href="#">시험·채용정보</a>
+
+            <a class="mega-item" href="#">시험정보</a>
+            <a class="mega-item plus" href="#">채용정보</a>
+            <a class="mega-item" href="#">대학생교육봉사활동</a>
+            <a class="mega-item" href="#">학교민원서비스센터 바로가기</a>
+
+            <a class="mega-item ext" href="#">계약직교원 인력풀</a>
+            <a class="mega-item ext" href="#">교육공무직원 인력풀</a>
+            <a class="mega-item ext" href="#">퇴직공무원 인력풀</a>
+            <a class="mega-item" href="#">학교알림마당</a>
+
+            <a class="mega-item plus" href="#">원격수업/대체학습</a>
+            <a class="mega-item" href="#">계약정보</a>
+            <a class="mega-item" href="#">학교회계전출금 교부현황</a>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="has-mega">
+      <a href="#">교육마당</a>
+
+      <div class="mega">
+        <div class="mega-inner">
+          <div class="mega-left">
+            <strong class="mega-title">교육마당</strong>
+            <p class="mega-desc">미래를 배우다 함께 성장한다</p>
+          </div>
+
+
+          <div class="mega-right">
+            <a class="mega-item" href="#">공지사항</a>
+            <a class="mega-item" href="#">통합예약시스템</a>
+            <a class="mega-item" href="#">기관별 행사안내</a>
+            <a class="mega-item plus" href="#">시험·채용정보</a>
+
+            <a class="mega-item" href="#">시험정보</a>
+            <a class="mega-item plus" href="#">채용정보</a>
+            <a class="mega-item" href="#">대학생교육봉사활동</a>
+            <a class="mega-item" href="#">학교민원서비스센터 바로가기</a>
+
+            <a class="mega-item ext" href="#">계약직교원 인력풀</a>
+            <a class="mega-item ext" href="#">교육공무직원 인력풀</a>
+            <a class="mega-item ext" href="#">퇴직공무원 인력풀</a>
+            <a class="mega-item" href="#">학교알림마당</a>
+
+            <a class="mega-item plus" href="#">원격수업/대체학습</a>
+            <a class="mega-item" href="#">계약정보</a>
+            <a class="mega-item" href="#">학교회계전출금 교부현황</a>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="has-mega">
+      <a href="#">행정마당</a>
+
+      <div class="mega">
+        <div class="mega-inner">
+          <div class="mega-left">
+            <strong class="mega-title">행정마당</strong>
+            <p class="mega-desc">미래를 배우다 함께 성장한다</p>
+          </div>
+
+
+          <div class="mega-right">
+            <a class="mega-item" href="#">공지사항</a>
+            <a class="mega-item" href="#">통합예약시스템</a>
+            <a class="mega-item" href="#">기관별 행사안내</a>
+            <a class="mega-item plus" href="#">시험·채용정보</a>
+
+            <a class="mega-item" href="#">시험정보</a>
+            <a class="mega-item plus" href="#">채용정보</a>
+            <a class="mega-item" href="#">대학생교육봉사활동</a>
+            <a class="mega-item" href="#">학교민원서비스센터 바로가기</a>
+
+            <a class="mega-item ext" href="#">계약직교원 인력풀</a>
+            <a class="mega-item ext" href="#">교육공무직원 인력풀</a>
+            <a class="mega-item ext" href="#">퇴직공무원 인력풀</a>
+            <a class="mega-item" href="#">학교알림마당</a>
+
+            <a class="mega-item plus" href="#">원격수업/대체학습</a>
+            <a class="mega-item" href="#">계약정보</a>
+            <a class="mega-item" href="#">학교회계전출금 교부현황</a>
+          </div>
+        </div>
+      </div>
+    </li>
+    
+    <li class="has-mega">
+        <a href="#">민원·정보공개</a>
+        <div class="mega">
+        <div class="mega-inner">
+          <div class="mega-left">
+            <strong class="mega-title">민원·정보공개</strong>
+            <p class="mega-desc">미래를 배우다 함께 성장한다</p>
+          </div>
+
+
+          <div class="mega-right">
+            <a class="mega-item" href="#">공지사항</a>
+            <a class="mega-item" href="#">통합예약시스템</a>
+            <a class="mega-item" href="#">기관별 행사안내</a>
+            <a class="mega-item plus" href="#">시험·채용정보</a>
+
+            <a class="mega-item" href="#">시험정보</a>
+            <a class="mega-item plus" href="#">채용정보</a>
+            <a class="mega-item" href="#">대학생교육봉사활동</a>
+            <a class="mega-item" href="#">학교민원서비스센터 바로가기</a>
+
+            <a class="mega-item ext" href="#">계약직교원 인력풀</a>
+            <a class="mega-item ext" href="#">교육공무직원 인력풀</a>
+            <a class="mega-item ext" href="#">퇴직공무원 인력풀</a>
+            <a class="mega-item" href="#">학교알림마당</a>
+
+            <a class="mega-item plus" href="#">원격수업/대체학습</a>
+            <a class="mega-item" href="#">계약정보</a>
+            <a class="mega-item" href="#">학교회계전출금 교부현황</a>
+          </div>
+        </div>
+      </div>
+    </li>
+    
+    <li class="has-mega">
+      <a href="#">교육청 안내</a>
+
+      <div class="mega">
+        <div class="mega-inner">
+          <div class="mega-left">
+            <strong class="mega-title">교육청 안내</strong>
+            <p class="mega-desc">미래를 배우다 함께 성장한다</p>
+          </div>
+
+
+          <div class="mega-right">
+            <a class="mega-item" href="#">공지사항</a>
+            <a class="mega-item" href="#">통합예약시스템</a>
+            <a class="mega-item" href="#">기관별 행사안내</a>
+            <a class="mega-item plus" href="#">시험·채용정보</a>
+
+            <a class="mega-item" href="#">시험정보</a>
+            <a class="mega-item plus" href="#">채용정보</a>
+            <a class="mega-item" href="#">대학생교육봉사활동</a>
+            <a class="mega-item" href="#">학교민원서비스센터 바로가기</a>
+
+            <a class="mega-item ext" href="#">계약직교원 인력풀</a>
+            <a class="mega-item ext" href="#">교육공무직원 인력풀</a>
+            <a class="mega-item ext" href="#">퇴직공무원 인력풀</a>
+            <a class="mega-item" href="#">학교알림마당</a>
+
+            <a class="mega-item plus" href="#">원격수업/대체학습</a>
+            <a class="mega-item" href="#">계약정보</a>
+            <a class="mega-item" href="#">학교회계전출금 교부현황</a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+<img src="../정지이_website/images/sub.png" alt="서브페이지">
+<footer class="footer">
+            <nav class="buseo">
+                <ul>
+                    <li class="depth2">
+                        <a href="#">부서누리집</a>
+                        <ul class="lnb2">
+                            <li><a href="#">대외기관</a></li>
+                            <li><a href="#">감사관</a></li>
+                            <li><a href="#">미래교육관</a></li>
+                            <li><a href="#">유아특수교육과</a></li>
+                            <li><a href="#">초등교육과</a></li>
+                            <li><a href="#">중등교육과</a></li>
+                            <li><a href="#">고등교육과</a></li>
+                        </ul>
+                    </li>
+                    <li class="depth2">
+                        <a href="#">타시도교육청</a>
+                        <ul class="lnb2">
+                            <li><a href="#">교육부</a></li>
+                            <li><a href="#">서울특별시교육청</a></li>
+                            <li><a href="#">부산광역시교육청</a></li>
+                            <li><a href="#">울산광역시교육청</a></li>
+                            <li><a href="#">광주광역시교육청</a></li>
+                            <li><a href="#">대전광역시교육청</a></li>
+                            <li><a href="#">인천광역시교육청</a></li>
+                        </ul>
+                    </li>
+                    <li class="depth2">
+                        <a href="#">교육지원청/직속기관/센터</a>
+                        <ul class="lnb2">
+                            <li><a href="#">동부교육지원청</a></li>
+                            <li><a href="#">남부교육지원청</a></li>
+                            <li><a href="#">서부교육지원청</a></li>
+                            <li><a href="#">달성교육지원청</a></li>
+                            <li><a href="#">군위교육지원청</a></li>
+                            <li><a href="#">대구광역시교육연수원</a></li>
+                            <li><a href="#">대구창의융합교육원</a></li>
+                        </ul>
+                    </li>
+                    <li class="depth2">
+                        <a href="#">유관기관</a>
+                        <ul class="lnb2">
+                            <li><a href="#">대구광역시</a></li>
+                            <li><a href="#">대구광역시의회</a></li>
+                            <li><a href="#">대구광역시동구</a></li>
+                            <li><a href="#">대구광역시서구</a></li>
+                            <li><a href="#">대구광역시남구</a></li>
+                            <li><a href="#">대구광역시북구</a></li>
+                            <li><a href="#">대구광역시중구</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+                <ul class="geain">
+                    <li><a href="#">개인정보 처리방침</a><span>•</span></li>
+                    <li><a href="#">누리집운영지침</a><span>•</span></li>
+                    <li><a href="#">공무원행동강령</a><span>•</span></li>
+                    <li><a href="#">웹접근성정책</a><span>•</span></li>
+                    <li><a href="#">저작권정책</a><span>•</span></li>
+                    <li><a href="#">행정서비스현장</a></li>
+                </ul>
+
+                <address class="address">
+                    <ul>
+                        <li>(우)42123 대구광역시 수성구 수성로 76길 11 대구광역시 교육청 대표전화 053-231-0000 |</li>
+                        <li>대표팩스 053-757-8100, 민원팩스 053-752-6006</li>
+                        <li>copyright Daegu Metropolitan Office of Education. All Rights Reserved.</li>
+                    </ul>
+                </address>
+        </footer>
+</div>
+</body>
+</html>
